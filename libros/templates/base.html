@@ -19,18 +19,19 @@
         <!--mostrar usuario loguedao y cerrar sesion-->
 
         <p>Hola {{request.session.nombre }}!</p>
-        <a href="{% url 'usuarios:login' %}">Cerrar sesión</a>
+        
         <a href="{% url 'usuarios:login' %}">Inicio</a>
         <a href="{% url 'libros:index' %}">Libros</a>
         <a href="{% url 'prestamos:index' %}">Prestamos</a>
+        <a href="{% url 'usuarios:login' %}">Cerrar sesión</a>
 
 
     </nav>
     {% block content %}
     {% endblock %}
     <footer>
-        <p>Este es el pie de página</p>
-        <p>Derechos reservados &copy; 2023</p>
+        
+        <p>Derechos reservados &copy; 2025</p>
     </footer>
 </div>
 </body>

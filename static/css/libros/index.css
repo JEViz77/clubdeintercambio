@@ -65,10 +65,10 @@ td .action-links a {
 }
 
 .fa-eye{
-    color: blue;
+    color: rgb(38, 220, 220);
 }
 
-.fa-edit{
+.fa-file-pen{
     color: green;
 }
 
