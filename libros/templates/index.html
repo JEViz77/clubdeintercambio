@@ -26,7 +26,7 @@
                     <td><img src="{{ libro.imagen.url }}" alt="" width="100"></td>
                     <td class="action-links">
                         <a href="{% url 'libros:ver' libro.libro_id %}"><i class="fa-solid fa-eye"></i></a>
-                        <a href="% url 'libros:ver' libro.libro_id %"><i class="fa-solid fa-file-pen"></i></a>
+                        <a href="% url 'libros:editar' libro.libro_id %"><i class="fa-solid fa-file-pen"></i></a>
                         <a href="{% url 'libros:borrar' libro.libro_id %}"><i class="fa-solid fa-trash"></i></a>
                     </td>
                 </tr>
