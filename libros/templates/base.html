@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/libros/base.css' %}">
+    {% block extra_css %}{% endblock %}
+   
+</head>
+
+<body>
+    <div class="container">
+    <nav>
+        <!--mostrar usuario loguedao y cerrar sesion-->
+
+        <p>Hola {{request.session.nombre }}!</p>
+        <a href="{% url 'usuarios:login' %}">Cerrar sesión</a>
+        <a href="{% url 'usuarios:login' %}">Inicio</a>
+        <a href="{% url 'libros:index' %}">Libros</a>
+        <a href="{% url 'prestamos:index' %}">Prestamos</a>
+
+
+    </nav>
+    {% block content %}
+    {% endblock %}
+    <footer>
+        <p>Este es el pie de página</p>
+        <p>Derechos reservados &copy; 2023</p>
+    </footer>
+</div>
+</body>
+
+</html>

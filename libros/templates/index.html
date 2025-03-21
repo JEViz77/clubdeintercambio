@@ -1,0 +1,38 @@
+<!--cargar plantilla base.html-->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/libros/index.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h3>Listados de libros</h3>
+    <hr>
+    <table class="table-container">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th>Descripción</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+                <tr>
+                    <td>{{ libro.titulo }}</td>
+                    <td>{{ libro.descripcion }}</td>
+                    <td><img src="{{ libro.imagen.url }}" alt="" width="100"></td>
+                    <td class="action-links">
+                        <a href="{% url 'libros:ver' libro.libro_id %}"><i class="fa-solid fa-eye"></i></a>
+                        <a href=""><i class="fa-solid fa-file-pen"></i></a>
+                        <a href="{% url 'libros:borrar' libro.libro_id %}"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+    </table>
+    <hr>
+    <a class="create-btn" href="{% url 'libros:alta_libro' %}">Crear libro</a>
+</div>
+{% endblock %}
