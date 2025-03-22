@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/libros/style.css' %}">
+{% endblock %}
 {% block content %}
-    <h3>Detalle del libro</h3>
+<div class="container">
+    <div class="titulo">
+    <h2>Detalle del libro</h2>
+    <a class="create-btn" href="{% url 'libros:index' %}">Volver</a>
+    </div>
     <hr>
     <h4>{{ libro.titulo }}</h4>
     <p>{{ libro.descripcion }}</p>
@@ -16,22 +25,28 @@
                 <th>Fecha de prestamo</th>
                 <th>Fecha de devolucion</th>
                 <th>Estado</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             {% for prestamo in prestamos %}
-                <tr>
-                    <td>{{ prestamo.prestamos_id }}</td>
-                    <td>{{ prestamo.usuario }}</td>
-                    <td>{{ prestamo.fecha_solicitud}}</td>
-                    <td>{{ prestamo.fecha_devolucion }}</td>
-                    <td>{{prestamo.estado}}</td>
-                    
-                </tr>
+            <tr>
+                <td>{{ prestamo.prestamos_id }}</td>
+                <td>{{ prestamo.usuario }}</td>
+                <td>{{ prestamo.fecha_solicitud}}</td>
+                <td>{{ prestamo.fecha_devolucion }}</td>
+                <td>{{prestamo.estado}}</td>
+                <td>
+                    <a class="create-btn aceptar" href="{% url 'prestamos:aceptar' prestamo.prestamos_id %}">Aceptar</a>
+                    <a class="create-btn rechazar"
+                        href="{% url 'prestamos:cancelar' prestamo.prestamos_id %}">Rechazar</a>
+                </td>
+
+            </tr>
             {% endfor %}
         </tbody>
-        </table>
-    <hr>
-    <a href="{% url 'libros:index' %}">Volver</a>
+    </table>
+    
+   
+</div>
 {% endblock %}
-

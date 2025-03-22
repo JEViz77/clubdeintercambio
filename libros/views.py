@@ -33,3 +33,14 @@ def ver(request, libro_id):
     libro = Libro.objects.get(libro_id=libro_id)
     prestamos = libro.prestamos.all()
     return render(request, 'ver.html', {'libro': libro, 'prestamos': prestamos})
+
+def editar(request, libro_id):
+    libro = Libro.objects.get(libro_id=libro_id)
+    if request.method == 'POST':
+        form = LibroForm(request.POST, request.FILES, instance=libro)
+        if form.is_valid():
+            form.save()
+            return redirect('libros:index')
+    else:
+        form = LibroForm(instance=libro)
+    return render(request, 'alta_libro.html', {'form': form})

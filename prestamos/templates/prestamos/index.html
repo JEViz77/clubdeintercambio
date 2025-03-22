@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/libros/style.css' %}">
+{% endblock %}
+{% block content %}
+
+
+
+<div class="container">
+    <h2>Solicitudes realizadas</h2>
+    <table>
+        <thead>
+            <th>Titulo</th>
+            <th>Fecha solicitud</th>
+            <th>Fecha devolucion</th>
+            <th>Estado</th>
+        </thead>
+        <tbody>
+            {% for prestamo in solicitudes_prestamos %}
+            <tr>
+                <td>{{ prestamo.libro.titulo }}</td>
+                <td>{{ prestamo.fecha_solicitud }}</td>
+                <td>{{ prestamo.fecha_devolucion }}</td>
+                <td>{{ prestamo.estado.descripcion }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <h2>Lista de préstamos</h2>
+    <hr>
+    <table>
+        <thead>
+           <tr>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Imagen</th>
+            <th>Solicitar</th>
+           </tr> 
+        </thead>
+        <tbody>
+            {% for libro in libros %}
+
+            <tr>
+                <td>{{ libro.titulo }}</td>
+                <td>{{ libro.descripcion }}</td>
+                <td><img src="{{ libro.imagen.url }}" alt="" width="100"></td>
+                <td><a href="{% url 'prestamos:solicitar' libro.libro_id%}"><i class="fa-regular fa-hand-point-left"></i></a></td>
+            </tr>
+    
+        
+    
+    {% endfor %}
+        </tbody>
+    </table>
+   
+    
+
+
+</div>
+
+
+
+{%endblock%}

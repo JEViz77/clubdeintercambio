@@ -3,11 +3,14 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/libros/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/libros/style.css' %}">
 {% endblock %}
 {% block content %}
 <div class="container">
-    <h3>Listados de libros</h3>
+    <div class="titulo">
+    <h2>Listado de libros</h2>
+    <a class="create-btn" href="{% url 'libros:alta_libro' %}">Añadir libro</a>
+</div>
     <hr>
     <table class="table-container">
         <thead>
@@ -26,13 +29,15 @@
                     <td><img src="{{ libro.imagen.url }}" alt="" width="100"></td>
                     <td class="action-links">
                         <a href="{% url 'libros:ver' libro.libro_id %}"><i class="fa-solid fa-eye"></i></a>
-                        <a href="% url 'libros:editar' libro.libro_id %"><i class="fa-solid fa-file-pen"></i></a>
+                        <a href="{% url 'libros:editar' libro.libro_id %}"><i class="fa-solid fa-file-pen"></i></a>
+                        {% if libro.prestamos.count == 0 %}
                         <a href="{% url 'libros:borrar' libro.libro_id %}"><i class="fa-solid fa-trash"></i></a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
     </table>
     <hr>
-    <a class="create-btn" href="{% url 'libros:alta_libro' %}">Añadir libro</a>
+    
 </div>
 {% endblock %}
