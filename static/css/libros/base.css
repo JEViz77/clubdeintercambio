@@ -55,3 +55,52 @@ footer {
     color: gold;
     border-radius: 10px;
 }
+
+/* Media Queries para hacer el diseño responsive */
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px; /* Menos padding en pantallas pequeñas */
+    }
+
+    nav {
+        flex-direction: column; /* Los elementos de navegación se apilan verticalmente */
+        align-items: center; /* Centra los elementos en pantallas pequeñas */
+    }
+
+    nav p {
+        text-align: center;
+        font-size: 1.5em; /* Aumenta el tamaño del texto para visibilidad */
+        margin-bottom: 10px;
+    }
+
+    nav a {
+        margin: 10px 0; /* Ajusta el espacio entre los enlaces de navegación */
+        font-size: 1em; /* Reduce el tamaño de los enlaces en pantallas pequeñas */
+    }
+
+    footer {
+        padding: 15px; /* Más padding en el pie de página para pantallas pequeñas */
+    }
+}
+
+/* Para pantallas aún más pequeñas, como móviles muy pequeños */
+@media (max-width: 480px) {
+    nav p {
+        font-size: 1.2em; /* Ajusta el tamaño del texto para pantallas muy pequeñas */
+    }
+
+    nav a {
+        font-size: 0.9em; /* Reduce aún más el tamaño de los enlaces */
+        margin: 5px 0; /* Reduce el margen entre los enlaces */
+    }
+
+    footer {
+        padding: 10px; /* Ajusta el padding del pie de página */
+    }
+
+    .container {
+        padding: 10px; /* Menos padding en pantallas muy pequeñas */
+    }
+}

@@ -1,10 +1,5 @@
 /* Estilos para la lista de libros */
-* {
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+
 .container {
     
     max-width: 1200px;
@@ -129,4 +124,60 @@ a.rechazar{
 
 .fa-hand-point-left{
     font-size: x-large;
+}
+
+/* Media Queries para hacer el diseño responsive */
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+    .titulo {
+        flex-direction: column; /* Los elementos del título se apilan verticalmente */
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+    }
+
+    table {
+        font-size: 14px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+    }
+
+    th, td {
+        padding: 8px; /* Menos espacio para una mejor vista en pantallas pequeñas */
+    }
+
+    td .action-links {
+        flex-direction: column; /* Las acciones se apilan verticalmente */
+        gap: 5px; /* Menos espacio entre las acciones */
+    }
+
+    a.create-btn {
+        width: 100%; /* Hacer el botón de crear más grande en pantallas pequeñas */
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .container {
+        padding: 10px; /* Menos padding para adaptarse mejor a pantallas pequeñas */
+    }
+}
+
+/* Para pantallas aún más pequeñas, como móviles muy pequeños */
+@media (max-width: 480px) {
+    table {
+        font-size: 12px; /* Reduce aún más el tamaño de la fuente */
+    }
+
+    .titulo h2 {
+        font-size: 18px; /* Ajusta el tamaño del título */
+    }
+
+    td {
+        padding: 8px 5px; /* Reduce el espacio en las celdas */
+    }
+
+    .table-container {
+        overflow-x: scroll; /* Permite desplazamiento horizontal en pantallas muy pequeñas */
+    }
+
+    a.create-btn {
+        padding: 8px 10px; /* Ajusta el tamaño del botón */
+    }
 }
